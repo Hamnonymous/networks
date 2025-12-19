@@ -1,0 +1,331 @@
+1️⃣ What is Wireshark?
+
+Wireshark is a network protocol analyzer used to capture, inspect, and analyze network packets in real time.
+
+Definition:
+
+Wireshark captures data packets flowing through a network interface and displays detailed information such as:
+
+Source IP address
+
+Destination IP address
+
+Protocol used (TCP, UDP, HTTP, etc.)
+
+Packet size
+
+Payload data
+
+Features:
+
+Open-source and free
+
+Supports hundreds of protocols
+
+Live packet capture
+
+Powerful filtering options
+
+Used for network troubleshooting, security analysis, and learning networking
+
+2️⃣ How to Scan a Particular Network Using Wireshark?
+
+Wireshark does not actively “scan” a network like Nmap.
+Instead, it passively captures packets from a selected network.
+
+Steps to Capture (Scan) a Network:
+
+Open Wireshark
+
+Select the network interface:
+
+Ethernet (wired network)
+
+Wi-Fi (wireless network)
+
+Loopback (localhost traffic)
+
+Click Start Capture
+
+Wireshark begins capturing all packets on that network
+
+Generate traffic (open websites, ping, run client-server program)
+
+Stop capture when analysis is complete
+
+Note:
+
+Wireshark captures only traffic visible to your system
+
+On switched networks, mostly your own traffic is visible
+
+3️⃣ How to Filter an IP Address from a Network?
+
+Wireshark provides display filters to isolate specific traffic.
+
+🔹 Filter by Source IP Address
+ip.src == 192.168.1.10
+
+
+Displays packets coming from the specified IP.
+
+🔹 Filter by Destination IP Address
+ip.dst == 192.168.1.10
+
+
+Displays packets going to the specified IP.
+
+🔹 Filter by Any IP Address (Source or Destination)
+ip.addr == 192.168.1.10
+
+
+Displays all traffic involving the IP address.
+
+🔹 Filter IP with Protocol (Example: TCP)
+ip.addr == 192.168.1.10 && tcp
+
+4️⃣ Commonly Used Filters (Exam Useful)
+Purpose	Filter
+TCP traffic	tcp
+UDP traffic	udp
+HTTP traffic	http
+Specific port	tcp.port == 5000
+ICMP (ping)	icmp
+5️⃣ Uses of Wireshark
+
+Network troubleshooting
+
+Security analysis
+
+Packet inspection
+
+Detecting malicious traffic
+
+Learning network protocols
+
+
+
+
+
+
+
+
+Different Types of Packet Capture Using Wireshark
+
+Wireshark captures network packets in different ways, depending on the network interface, capture method, and configuration.
+
+1️⃣ Live Packet Capture
+Description:
+
+Captures packets in real time from a selected network interface.
+
+Most commonly used capture type.
+
+Examples:
+
+Ethernet (LAN)
+
+Wi-Fi
+
+Loopback (localhost traffic)
+
+Use:
+
+Troubleshooting live network issues
+
+Monitoring active communication
+
+2️⃣ Offline (File-Based) Packet Capture
+Description:
+
+Opens and analyzes previously saved capture files
+
+File format: .pcap or .pcapng
+
+Use:
+
+Forensic analysis
+
+Studying captured traffic later
+
+Sharing packet data with others
+
+3️⃣ Ethernet Packet Capture
+Description:
+
+Captures packets from wired LAN networks
+
+Includes protocols like ARP, TCP, UDP, HTTP
+
+Use:
+
+Corporate networks
+
+Server communication analysis
+
+4️⃣ Wireless (Wi-Fi) Packet Capture
+Description:
+
+Captures packets over wireless networks
+
+Can capture:
+
+Management frames
+
+Control frames
+
+Data frames
+
+Modes:
+
+Normal Mode – captures only own traffic
+
+Monitor Mode – captures all nearby wireless traffic (if supported)
+
+Use:
+
+Wireless security analysis
+
+Network troubleshooting
+
+5️⃣ Loopback Packet Capture
+Description:
+
+Captures traffic within the same system
+
+Uses loopback address 127.0.0.1
+
+Use:
+
+Client-server programs running on same machine
+
+Application testing
+
+6️⃣ Promiscuous Mode Capture
+Description:
+
+Network interface captures all packets, not just packets addressed to it
+
+Use:
+
+Network monitoring
+
+Detecting suspicious traffic
+
+Note:
+
+Enabled by default in Wireshark
+
+7️⃣ Filtered Packet Capture
+Description:
+
+Captures only specific packets based on capture filters
+
+Examples:
+tcp port 80
+host 192.168.1.10
+
+Use:
+
+Reduces unnecessary data
+
+Focused analysis
+
+8️⃣ Protocol-Specific Packet Capture
+Description:
+
+Captures packets of a specific protocol
+
+Examples:
+
+TCP
+
+UDP
+
+HTTP
+
+DNS
+
+ICMP
+
+Use:
+
+Studying protocol behavior
+
+Debugging protocol issues
+
+9️⃣ Remote Packet Capture
+Description:
+
+Captures packets from a remote system
+
+Uses tools like:
+
+RPCAP
+
+SSH tunneling
+
+Use:
+
+Monitoring remote servers
+
+Network administration
+
+🔟 Port-Based Packet Capture
+Description:
+
+Captures packets using a specific port number
+
+Example:
+tcp.port == 5000
+
+Use:
+
+Client-server application analysis
+
+Service monitoring
+
+1️⃣1️⃣ Conversation-Based Capture
+Description:
+
+Focuses on communication between two endpoints
+
+Use:
+
+Client-server session analysis
+
+Chat and file transfer debugging
+
+1️⃣2️⃣ Multicast & Broadcast Capture
+Description:
+
+Captures packets sent to:
+
+Broadcast address
+
+Multicast groups
+
+Examples:
+
+ARP
+
+DHCP
+
+Use:
+
+Network discovery
+
+IP address allocation analysis
+
+Summary Table
+Type	Purpose
+Live Capture	Real-time analysis
+Offline Capture	Post-analysis
+Ethernet	Wired networks
+Wi-Fi	Wireless networks
+Loopback	Local applications
+Promiscuous	All visible traffic
+Filtered	Targeted packets
+Protocol-based	Specific protocol
+Remote	Remote systems
+Port-based	Application traffic
